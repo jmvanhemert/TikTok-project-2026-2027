@@ -1,3 +1,6 @@
+# Load package
+library(tidyverse)
+
 # Load data
 impressions <- read.csv("data/raw/impressions.csv")
 

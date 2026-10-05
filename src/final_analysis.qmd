@@ -10,9 +10,18 @@ This report examines the TikTok video dataset. It includes a basic inspection, t
 ## Loading the data
 ```{r}
 library(tidyverse)
+library(DBI)
+library(RSQLite)
+library(here)
 
-video_views <- read_csv("../data/raw/video_view.csv")
+file_path <- here::here("data", "raw", "tiktok_students.sqlite")
 
+con <- DBI::dbConnect(
+  RSQLite::SQLite(),
+  dbname = file_path
+)
+
+video_views <- DBI::dbReadTable(con, "video_view")
 ```
 
 ## Basic inspection of the data
@@ -88,7 +97,7 @@ dir.create("output", showWarnings = FALSE)
 
 capture.output(
   summary(model1),
-  file = "../output/model1_summary.txt"
+  file = "output/model1_summary.txt"
 )
 
 capture.output(
@@ -113,7 +122,7 @@ regression %>%
 
 ggsave(
   filename = "impressions_watchshare.png",
-  path = "../output",
+  path = "output",
   width = 6,
   height = 4,
   dpi = 300

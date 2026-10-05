@@ -1,5 +1,8 @@
 # This is the R script for the individual analysis from Justin
 
+# Load packages
+library(tidyverse)
+
 # Read the data
 watch_events <- read.csv("data/raw/tiktok_watch_events.csv")
 

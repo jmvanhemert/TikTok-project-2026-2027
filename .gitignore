@@ -1,12 +1,18 @@
 # Exclude the data folder
 /data
 
+# Exclude output folder
+output
+
 # Exclude generated files from week 1
 src/summary.html
 src/summary_files
 
 # Exclude the data and plots folder for the individual exercises in week 3
-src/week_3_individual_justin/data/
 src/week_3_individual_justin/plots
 src/Week3Judith/output
+
+# Exclude all generated files from last assignment
+src/final_analysis.pdf
+
 
