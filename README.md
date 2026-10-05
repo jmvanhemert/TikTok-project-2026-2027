@@ -12,9 +12,7 @@ This project contains both the team project and the individual assignments.
 ## Requirements 
 This project requires:
 - R
-- Quarto
-- R packages tidyverse, SQLite, DBI
-- R package 'tidyverse'
+- R packages 'tidyverse', 'SQLite', 'DBI'
 - Quarto
 - TinyTeX (required to render the PDF report)
 
