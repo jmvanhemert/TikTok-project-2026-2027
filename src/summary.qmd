@@ -4,10 +4,7 @@ format: html
 ---
 
 ```{r}
-library(tidyverse)
-
-video_views <- read_csv("../data/raw/video_view.csv")
-
+video_views <- read_csv("data/raw/video_view.csv")
 
 x <- nrow(video_views)
 print(x)
