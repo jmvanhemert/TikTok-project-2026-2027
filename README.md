@@ -40,7 +40,20 @@ open output/final_analysis.pdf
 
 ## Expected output
 - final_analysis.pdf
-  
+
+The final report contains:
+- Basic data inspection
+- Descriptive statistics
+- Summary analysis
+- Two regression models
+- A plot of impressions and average watch shares
+- Interpretation and conclusion
+
+Additional regression output is saved in:
+- `output/impressions_watchshare.png`
+- `output/model1_summary.txt`
+- `output/model2_summary.txt`
+
 ## Project structure
 - data/ - Contains raw data files
 - documentation - Contains AI.md (Information about AI usage in the project)
