@@ -31,6 +31,12 @@ The final analysis output can be rendered using:
 ```bash 
 quarto render src/final_analysis.qmd --to pdf --output-dir ../output
 ```
+
+To open the output: 
+```bash
+open output/final_analysis.pdf
+```
+
 ## Expected output
 - final_analysis.pdf
   
