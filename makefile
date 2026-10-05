@@ -1,11 +1,10 @@
 # This is the makefile for automation: simply just run make in the terminal
-all: download_video_views_data run_first_summary download_week_3_data run_Justin_analysis download_impressions.csv output/analysis_done.txt Rplots.pdf_gone
+all: download_data summary_week1 run_Justin_analysis download_impressions.csv output/analysis_done.txt Rplots.pdf_gone
 
-## Run all from week 1:
 download_data: src/download_data.R
 	Rscript src/download_data.R
 
-run_first_summary:
+summary_week1: data/raw/tiktok_students.sqlite src/summary.qmd
 	quarto render src/summary.qmd
 
 ## Run week 3 individual Justin:
