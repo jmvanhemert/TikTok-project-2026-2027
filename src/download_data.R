@@ -22,19 +22,32 @@ if (!file.exists(file_path)) {
 } else {
   cat("File already exists at:", file_path, "\n")}
 
-## Download video dataset as a csv because the SQLite database has not all columns
-csv_url <- paste0("https://raw.githubusercontent.com/hannesdatta/course-dprep/refs/heads/main/material/project/video_view.csv")
-csv_path <- paste0(data_folder, "/video_view.csv")
 
-  # Download the csv file if it doesn't exist
-if (!file.exists(csv_path)) {
-  download.file(url = csv_url, destfile = csv_path)
-  cat("File downloaded successfully to:", csv_path, "\n")
+## Download videos dataset as a csv because the SQLite database has not all columns
+videos_url <- paste0("https://raw.githubusercontent.com/hannesdatta/course-dprep/refs/heads/main/material/project/video_view.csv")
+videos_path <- paste0(data_folder, "/video_view.csv")
+
+if (!file.exists(videos_path)) {
+  download.file(url = videos_url, destfile = videos_path)
+  cat("File downloaded successfully to:", videos_path, "\n")
 } else {
-  cat("File already exists at:", csv_path, "\n")}
+  cat("File already exists at:", videos_path, "\n")}
+
+
+## Download WATCH EVENTS dataset as a csv because the SQLite database has not all columns
+watchev_url <- paste0("https://raw.githubusercontent.com/hannesdatta/course-dprep/refs/heads/main/material/project/coaching_2_data/watch_events.csv")
+watchev_path <- paste0(data_folder, "/tiktok_watch_events.csv")
+
+if (!file.exists(watchev_path)) {
+  download.file(url = watchev_url, destfile = watchev_path)
+  cat("File downloaded successfully to:", watchev_path, "\n")
+} else {
+  cat("File already exists at:", watchev_path, "\n")}
 
 
 
 con <- dbConnect(SQLite(), dbname = file_path)
 print(dbListTables(con))
+
+
 
