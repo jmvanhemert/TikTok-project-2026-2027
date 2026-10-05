@@ -16,24 +16,13 @@ This assignment requires
 
 ## Files
 
-- 'download_data.R'
-  Downloads the TikTok impressions dataset into the 'raw/' folder.
-
 - 'analysis.R'
   Loads and cleans the data for duplicates, and creates visualizations.
-
-- 'makefile'
-  Runs the workflow automatically.
 
 - 'output'
   Contains the generated visualizations.
 
 ## How to run the project
-
-First, download the data using the download_data.R file in the scripts folder
-
-Open a terminal in the `src/Week3Judith` folder.
-
 Run:
 
 ```bash
