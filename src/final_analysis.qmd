@@ -1,0 +1,130 @@
+---
+title: "Final analysis TikTok output"
+format: pdf
+---
+
+## Introduction
+
+This report examines the TikTok video dataset. It includes a basic inspection, the analysis/summaries, the regression analysis, and the final conclusions. 
+
+## Loading the data
+```{r}
+library(tidyverse)
+
+video_views <- read_csv("../data/raw/video_view.csv")
+
+```
+
+## Basic inspection of the data
+```{r}
+x <- nrow(video_views)
+print(x)
+
+str(video_views)
+head(video_views)
+summary(video_views)
+colSums(is.na(video_views))
+
+```
+
+## Analysis and summaries
+```{r}
+overview <- video_views %>%
+  summarize(
+    videos = n(),
+    creators = n_distinct(creator_id),
+    avg_length = mean(video_length_sec),
+    avg_impressions = mean(impressions_n),
+    avg_watched = mean(watched_n),
+    avg_watch_rate = mean(watch_rate),
+    avg_watch_seconds = mean(total_watch_seconds)
+  )
+
+print(overview)
+```
+
+## Additional analysis
+```{r}
+mean(video_views$watch_rate, na.rm = TRUE)
+mean(video_views$avg_watch_share, na.rm = TRUE)
+
+video_views$watched_pct <- video_views$watched_n / video_views$impressions_n * 100
+
+```
+
+## Video with the highest impressions
+```{r}
+topvideo <- video_views[video_views$impressions_n == max(video_views$impressions_n), ]
+print(topvideo)
+
+hist(video_views$video_length_sec)
+```
+
+## Videos with high watch rate
+```{r}
+goodvideos <- subset(video_views, watch_rate > 0.8)
+
+nrow(goodvideos)
+```
+
+## Regression analysis
+```{r}
+regression <-  video_views %>%
+    select(avg_watch_share, video_length_sec, impressions_n) %>%
+    drop_na()
+
+model1 <- regression %>%
+    lm(avg_watch_share ~ impressions_n, data = .)
+
+summary(model1)
+
+model2 <- regression %>%
+    lm(
+        avg_watch_share ~ impressions_n + video_length_sec, data = .)
+
+summary(model2)
+
+dir.create("output", showWarnings = FALSE)
+
+capture.output(
+  summary(model1),
+  file = "../output/model1_summary.txt"
+)
+
+capture.output(
+  summary(model2),
+  file = "output/model2_summary.txt"
+)
+
+```
+
+## Visualize 
+```{r}
+regression %>%
+    ggplot(aes(x = impressions_n, y = avg_watch_share)) +
+    geom_point(color = "navyblue", alpha = 0.4) + 
+    geom_smooth(method = "lm", color = "red") +
+    labs(
+        title = "Impressions and watch share",
+        x = "Number of impressions",
+        y = "Average Watch Share"
+    ) +
+    theme_minimal()
+
+ggsave(
+  filename = "impressions_watchshare.png",
+  path = "../output",
+  width = 6,
+  height = 4,
+  dpi = 300
+)
+```
+
+## Conclusion
+
+The analysis of the TikTok video dataset reveals several key insights. In model 1, impressions_n were not significantly associated with avg_watch_share (p = 0.702). The model explained only 0.013% of the variation in watch share. In model 2, adding video_length_set did barely change the results. Video length was also not significant (p = 0.888) and the R2 remained low (0.000143). Therefore, neither model provides evidence of a linear association between the number of impressions and the average watch share. 
+
+The regression analysis shows little linearclearly watched for a longer time. Missing values and incomplete observations were excluded from the regression. These results should be approached with caution, as there may be other factors influencing the relationshipn that were not accounted for in this analysis. 
+
+
+
