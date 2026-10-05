@@ -11,7 +11,7 @@ This project contains both the team project and the individual assignments.
 This project requires:
 - R
 - Quarto
-- R package 'tidyverse'
+- R packages tidyverse, SQLite, DBI
 
 Package can be installed in R using:
 
