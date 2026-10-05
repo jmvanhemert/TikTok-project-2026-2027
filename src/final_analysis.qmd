@@ -83,6 +83,19 @@ model2 <- regression %>%
         avg_watch_share ~ impressions_n + video_length_sec, data = .)
 
 summary(model2)
+
+dir.create("output", showWarnings = FALSE)
+
+capture.output(
+  summary(model1),
+  file = "output/model1_summary.txt"
+)
+
+capture.output(
+  summary(model2),
+  file = "output/model2_summary.txt"
+)
+
 ```
 
 ## Visualize 
