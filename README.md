@@ -13,15 +13,15 @@ This project contains both the team project and the individual assignments.
 This project requires:
 - R
 - Quarto
-- R packages tidyverse, SQLite, DBI
-- R package 'tidyverse'
+- R packages tidyverse, SQLite, DBI, here
 - Quarto
 - TinyTeX (required to render the PDF report)
+- Optional: make
 
 ## Run steps 
-Package can be installed in R using:
+Packages can be installed in R using:
 ```r
-install.packages("tidyverse")
+install.packages("package_name")
 ```
 
 Install TinyTeX once from the terminal: 
