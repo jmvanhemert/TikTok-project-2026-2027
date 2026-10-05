@@ -2,7 +2,7 @@
 all: download_video_views_data run_first_summary download_week_3_data run_Justin_analysis download_impressions.csv output/analysis_done.txt Rplots.pdf_gone
 
 ## Run all from week 1:
-download_video_views_data:
+download_data: src/download_data.R
 	Rscript src/download_data.R
 
 run_first_summary:

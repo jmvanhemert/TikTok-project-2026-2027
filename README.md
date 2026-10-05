@@ -12,6 +12,8 @@ This project contains both the team project and the individual assignments.
 ## Requirements 
 This project requires:
 - R
+- Quarto
+- R packages tidyverse, SQLite, DBI
 - R package 'tidyverse'
 - Quarto
 - TinyTeX (required to render the PDF report)
@@ -55,7 +57,7 @@ Additional regression output is saved in:
 - `output/model2_summary.txt`
 
 ## Project structure
-- data/ - Contains raw data files
+- data/raw - Contains the SQLite database with all raw data
 - documentation - Contains AI.md (Information about AI usage in the project)
 - src - Contains both the individual assignments, download_data.R to download the data in the project, and summary.qmd
 - .gitignore - Specifies that the data/ folder and other outputs do not need to be uploaded to GitHub
