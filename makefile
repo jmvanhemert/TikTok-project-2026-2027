@@ -24,5 +24,5 @@ clean:
 	-rmdir /S /Q "src/output"
 	-del /Q "Rplots.pdf"
 	-del /Q "src/final_analysis.pdf"
-	-rmdir /Q "output"
+	-rmdir /S /Q "output"
 
