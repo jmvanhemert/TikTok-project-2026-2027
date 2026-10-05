@@ -1,8 +1,5 @@
-# Load packages
-library(tidyverse)
-
 # Load data
-impressions <- read.csv("src/Week3Judith/raw/impressions.csv")
+impressions <- read.csv("data/raw/impressions.csv")
 
 
 # Check dataset
