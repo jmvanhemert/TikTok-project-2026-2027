@@ -1,4 +1,6 @@
 # TikTok Group project Team 3
+
+## Goal
 This repository contains the group project for the Data Preparation course. 
 The project uses TikTok data to practice downloading, preparing, summarizing, and analyzing data.
 This project contains both the team project and the individual assignments.
@@ -7,16 +9,21 @@ This project contains both the team project and the individual assignments.
 - Justin Huijnen (SNR: 2116456)
 - Judith van Hemert (SNR: 2191989)
 
-## Installation and dependencies
+## Requirements 
 This project requires:
 - R
 - Quarto
 - R package 'tidyverse'
 
+## Run steps 
 Package can be installed in R using:
-
 ```r
 install.packages("tidyverse")
+```
+
+The final analysis output can be rendered using:
+```r
+quarto render src/final_analysis.qmd --to pdf --output-dir ../output
 ```
 
 ## Project structure
