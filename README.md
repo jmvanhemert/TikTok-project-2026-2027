@@ -12,8 +12,9 @@ This project contains both the team project and the individual assignments.
 ## Requirements 
 This project requires:
 - R
-- Quarto
 - R package 'tidyverse'
+- Quarto
+- TinyTeX (required to render the PDF report)
 
 ## Run steps 
 Package can be installed in R using:
@@ -21,11 +22,18 @@ Package can be installed in R using:
 install.packages("tidyverse")
 ```
 
-The final analysis output can be rendered using:
-```r
-quarto render src/final_analysis.qmd --to pdf --output-dir ../output
+Install TinyTeX once from the terminal: 
+```bash
+quarto install tinytex
 ```
 
+The final analysis output can be rendered using:
+```bash 
+quarto render src/final_analysis.qmd --to pdf --output-dir ../output
+```
+## Expected output
+- final_analysis.pdf
+  
 ## Project structure
 - data/ - Contains raw data files
 - documentation - Contains AI.md (Information about AI usage in the project)
