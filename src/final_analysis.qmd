@@ -9,9 +9,19 @@ This report examines the TikTok video dataset. It includes a basic inspection, t
 
 ## Loading the data
 ```{r}
+library(tidyverse)
+library(DBI)
+library(RSQLite)
+library(here)
 
-video_views <- dbReadTable(con, "video_view")
+file_path <- here::here("data", "raw", "tiktok_students.sqlite")
 
+con <- DBI::dbConnect(
+  RSQLite::SQLite(),
+  dbname = file_path
+)
+
+video_views <- DBI::dbReadTable(con, "video_view")
 ```
 
 ## Basic inspection of the data
