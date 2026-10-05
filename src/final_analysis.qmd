@@ -11,7 +11,7 @@ This report examines the TikTok video dataset. It includes a basic inspection, t
 ```{r}
 library(tidyverse)
 
-video_views <- read_csv("../data/raw/video_view.csv")
+video_views <- read_csv("data/raw/video_view.csv")
 
 ```
 
@@ -119,6 +119,12 @@ ggsave(
   dpi = 300
 )
 ```
+
+## Conclusion
+
+The analysis of the TikTok video dataset reveals several key insights. In model 1, impressions_n were not significantly associated with avg_watch_share (p = 0.702). The model explained only 0.013% of the variation in watch share. In model 2, adding video_length_set did barely change the results. Video length was also not significant (p = 0.888) and the R2 remained low (0.000143). Therefore, neither model provides evidence of a linear association between the number of impressions and the average watch share. 
+
+The regression analysis shows little linearclearly watched for a longer time. Missing values and incomplete observations were excluded from the regression. These results should be approached with caution, as there may be other factors influencing the relationshipn that were not accounted for in this analysis. 
 
 
 
