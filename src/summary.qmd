@@ -4,7 +4,7 @@ format: html
 ---
 
 ```{r}
-video_views <- read_csv("data/raw/video_view.csv")
+video_views <- dbReadTable(con, "video_view")
 
 x <- nrow(video_views)
 print(x)
