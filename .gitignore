@@ -12,4 +12,7 @@ src/summary_files
 src/week_3_individual_justin/plots
 src/Week3Judith/output
 
+# Exclude all generated files from last assignment
+src/final_analysis.pdf
+
 
